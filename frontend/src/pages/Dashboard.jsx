@@ -9,14 +9,14 @@ const Dashboard = () => {
     const [filter, setFilter] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/v1/user/bulk?filter=" + filter)
+        axios.get("https://paytm-server-g0uk.onrender.com/api/v1/user/bulk?filter=" + filter)
             .then((response) => {
                 setUsers(response.data.user);
             });
     }, [filter])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/v1/account/balance", {
+        axios.get("https://paytm-server-g0uk.onrender.com/api/v1/account/balance", {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
             }

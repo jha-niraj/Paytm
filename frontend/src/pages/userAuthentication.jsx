@@ -16,7 +16,7 @@ const userAuthentication = ({type}) => {
 
     const handleSignup = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/api/v1/user/signup", {
+            const response = await axios.post("https://paytm-server-g0uk.onrender.com/api/v1/user/signup", {
                 firstName,
                 lastName,
                 username,
@@ -31,7 +31,7 @@ const userAuthentication = ({type}) => {
     }
     const handleSignin = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/api/v1/user/signin", {
+            const response = await axios.post("https://paytm-server-g0uk.onrender.com/api/v1/user/signin", {
                 username,
                 password
             })
