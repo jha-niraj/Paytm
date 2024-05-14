@@ -38,10 +38,8 @@ router.post("/signup", async (req, res) => {
         balance: 1 + Math.random() * 10000
     })
 
-    const token = jwt.sign({ userId }, jwt_secret);
     res.status(200).json({
         message: "User created successfully",
-        token: token
     })
 })
 
@@ -59,8 +57,9 @@ router.post("/signin", async (req, res) => {
         username,
         password
     })
+    const userId = user._id;
     if(user) {
-        const token = jwt.sign({username}, jwt_secret);
+        const token = jwt.sign({ userId }, jwt_secret);
         res.status(200).json({
             message: "Login Successful",
             token: token

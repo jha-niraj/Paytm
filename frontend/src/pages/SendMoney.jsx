@@ -1,23 +1,29 @@
 import InputBox from "../components/InputBox";
 import Button from "../components/Button"
 import PageAnimation from "./pageAnimation";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import axios from "axios";
+
+import { Move, MoveLeft } from "lucide-react";
 
 const SendMoney = () => {
     const [searchParams] = useSearchParams();
     const id = searchParams.get("id");
     const firstName = searchParams.get("name");
     const [amount, setAmount] = useState(0);
+    const navigate = useNavigate();
 
     return (
         <PageAnimation>
+            <div className="flex items-center justify-start p-5 absolute">
+                <button onClick={() => navigate("/dashboard")} className="text-2xl font-bold text-white p-1 rounded-lg bg-black hover:scale-110 transition-all hover:bg-gray-100 hover:text-black">Dashboard</button>
+            </div>
             <section className="flex items-center bg-gray-100 flex-col justify-center h-screen">
                 <div className="flex items-center shadow-2xl p-8 rounded-lg flex-col gap-8 justify-center">    
-                    <div className="font-bold font-sans text-4xl">
-                        Send Money
+                    <div className="flex items-center justify-center gap-20"> 
+                        <h1 className="font-bold font-sans text-4xl">Send Money</h1>
                     </div>
                     <Toaster />
                     <div className="m-10 w-full">
